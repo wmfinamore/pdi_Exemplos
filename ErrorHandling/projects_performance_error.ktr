@@ -750,6 +750,9 @@
       <field>
         <name>end_date</name>
       </field>
+      <field>
+        <name>error_desc</name>
+      </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -770,7 +773,7 @@
       <target_step>Write to log</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
-      <descriptions_valuename/>
+      <descriptions_valuename>error_desc</descriptions_valuename>
       <fields_valuename/>
       <codes_valuename/>
       <max_errors/>

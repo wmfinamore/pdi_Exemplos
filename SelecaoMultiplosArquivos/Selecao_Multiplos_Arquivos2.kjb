@@ -304,7 +304,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>48</xloc>
+      <xloc>144</xloc>
       <yloc>96</yloc>
     </entry>
     <entry>
@@ -392,7 +392,7 @@
       <contact_phone/>
       <comment>Bom dia
 
-Seguem as guias no anexo.
+Segue arquivo de guias do Aprove Facil do dia ${dataH}  no anexo.
 
 At.,
 
@@ -422,7 +422,7 @@ Willian Moreira Finamore
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>752</xloc>
+      <xloc>768</xloc>
       <yloc>96</yloc>
     </entry>
     <entry>
@@ -435,33 +435,13 @@ Willian Moreira Finamore
       <fields>
         <field>
           <name>${Internal.Job.Filename.Directory}</name>
-          <filemask>Guia_${dataGuia}\.txt</filemask>
+          <filemask>Guia_${dataH}\.txt</filemask>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>672</xloc>
-      <yloc>96</yloc>
-    </entry>
-    <entry>
-      <name>Set variables</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>dataGuia</variable_name>
-          <variable_value>${dataH}</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>256</xloc>
       <yloc>96</yloc>
     </entry>
     <entry>
@@ -497,7 +477,7 @@ Willian Moreira Finamore
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
+      <xloc>256</xloc>
       <yloc>96</yloc>
     </entry>
     <entry>
@@ -511,7 +491,7 @@ Willian Moreira Finamore
       <fields>
         <field>
           <source_filefolder>${Internal.Entry.Current.Directory}</source_filefolder>
-          <wildcard>Guia_${dataGuia}\.txt</wildcard>
+          <wildcard>Guia_${dataH}\.txt</wildcard>
           <include_subFolders>N</include_subFolders>
         </field>
       </fields>
@@ -578,24 +558,6 @@ Willian Moreira Finamore
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Current_date</from>
-      <to>Set variables</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set variables</from>
-      <to>Checks if files exist</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Checks if files exist</from>
       <to>Evaluate files metrics</to>
       <from_nr>0</from_nr>
@@ -620,6 +582,15 @@ Willian Moreira Finamore
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Current_date</from>
+      <to>Checks if files exist</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>

@@ -1,0 +1,18 @@
+<world>
+    <country>
+        <name>Japan</name>
+            <capital>Tokyo</capital>
+            <language isofficial="T">
+                <name>Japanese</name>
+                <percentage>99.1</percentage>
+            </language>
+            <language isofficial="F">
+                <name>Korean</name>
+                <percentage>0.5</percentage>
+            </language>
+            <language isofficial="F">
+                <name>Chinese</name>
+                <percentage>0.2</percentage>
+            </language>
+    </country>
+</world>

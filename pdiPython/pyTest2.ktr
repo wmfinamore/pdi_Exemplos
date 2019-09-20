@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>exemplo2</name>
+    <name>pyTest2</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -423,72 +423,272 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
+      <slaveserver>
+        <name>di-server</name>
+        <hostname>localhost</hostname>
+        <port>9080</port>
+        <webAppName>pentaho-di</webAppName>
+        <username>joe</username>
+        <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2018/09/11 20:12:31.762</created_date>
+    <created_date>2015/07/22 10:41:19.604</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/09/11 20:12:31.762</modified_date>
+    <modified_date>2015/07/22 10:41:19.604</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Load the boston data
+in Python</note>
+      <xloc>97</xloc>
+      <yloc>169</yloc>
+      <width>133</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Use row-by-row mode to compute
+the sum of each incoming row</note>
+      <xloc>338</xloc>
+      <yloc>169</yloc>
+      <width>205</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <order>
     <hop>
-      <from>CSV file input</from>
-      <to>Replace in string</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>CSV file input</from>
-      <to>Replace in string 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Replace in string</from>
-      <to>Modified JavaScript value</to>
+      <from>CPython Script Executor</from>
+      <to>CPython Script Executor 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>CSV file input</name>
-    <type>CsvInput</type>
+    <name>CPython Script Executor</name>
+    <type>CPythonScriptExecutor</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\BI\pdi_Exemplos\RegularExpression\ZIP_CODE_replace.txt</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure>"</enclosure>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <encoding/>
-    <fields>
-      <field>
-        <name>text</name>
+    <rows_to_process>ALL</rows_to_process>
+    <rows_to_process_size/>
+    <reservoir_sampling>N</reservoir_sampling>
+    <reservoir_sampling_size/>
+    <reservoir_sampling_seed>1</reservoir_sampling_seed>
+    <include_input_as_output>N</include_input_as_output>
+    <py_script># python script
+from sklearn import datasets
+import pandas as pd
+from pandas import DataFrame
+bs=datasets.load_boston()
+boston=DataFrame(bs.data)
+</py_script>
+    <load_script_at_runtime>N</load_script_at_runtime>
+    <script_to_load/>
+    <continue_on_unset_vars>N</continue_on_unset_vars>
+    <py_vars_to_get>boston</py_vars_to_get>
+    <include_frame_row_index>N</include_frame_row_index>
+    <frame_names>
+    </frame_names>
+    <incoming_step_names>
+   </incoming_step_names>
+    <output_fields>
+      <output_field>
+        <field_name>0</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>1</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>2</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>3</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>4</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>5</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>6</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>7</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>8</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>9</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>10</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>11</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>12</field_name>
+        <type>Number</type>
+      </output_field>
+    </output_fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>137</xloc>
+      <yloc>101</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CPython Script Executor 2</name>
+    <type>CPythonScriptExecutor</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <rows_to_process>Row by Row</rows_to_process>
+    <rows_to_process_size/>
+    <reservoir_sampling>N</reservoir_sampling>
+    <reservoir_sampling_size/>
+    <reservoir_sampling_seed>1</reservoir_sampling_seed>
+    <include_input_as_output>Y</include_input_as_output>
+    <py_script># python script
+sum=py_data.loc[0].sum()
+</py_script>
+    <load_script_at_runtime>N</load_script_at_runtime>
+    <script_to_load/>
+    <continue_on_unset_vars>N</continue_on_unset_vars>
+    <py_vars_to_get>sum</py_vars_to_get>
+    <include_frame_row_index>N</include_frame_row_index>
+    <frame_names>
+      <frame_name0>py_data</frame_name0>
+    </frame_names>
+    <incoming_step_names>
+      <step_name0>CPython Script Executor</step_name0>
+    </incoming_step_names>
+    <output_fields>
+      <output_field>
+        <field_name>0</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>1</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>2</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>3</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>4</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>5</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>6</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>7</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>8</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>9</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>10</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>11</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>12</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>sum</field_name>
         <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>21</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
+      </output_field>
+    </output_fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -498,123 +698,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>200</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Replace in string</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>text</in_stream_name>
-        <out_stream_name>postal_code</out_stream_name>
-        <use_regex>no</use_regex>
-        <replace_string>ZIP CODE</replace_string>
-        <replace_by_string>POSTAL CODE</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Replace in string 2</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>text</in_stream_name>
-        <out_stream_name>postal_code</out_stream_name>
-        <use_regex>yes</use_regex>
-        <replace_string>(ZIP CODE|ZC):([0-9]{5})</replace_string>
-        <replace_by_string>POSTAL CODE:$2</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Modified JavaScript value</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var len_Word = text.length</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>96</yloc>
+      <xloc>388</xloc>
+      <yloc>102</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

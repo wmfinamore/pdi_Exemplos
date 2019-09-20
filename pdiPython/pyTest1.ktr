@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>exemplo2</name>
+    <name>pyTest1</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -423,35 +424,347 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
+      <slaveserver>
+        <name>di-server</name>
+        <hostname>localhost</hostname>
+        <port>9080</port>
+        <webAppName>pentaho-di</webAppName>
+        <username>joe</username>
+        <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2018/09/11 20:12:31.762</created_date>
+    <created_date>2015/07/02 09:49:17.731</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/09/11 20:12:31.762</modified_date>
+    <modified_date>2015/07/02 09:49:17.731</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Compute quartiles for columns
+in iris data</note>
+      <xloc>368</xloc>
+      <yloc>0</yloc>
+      <width>220</width>
+      <heigth>46</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>12</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Transform the numeric
+fields of the iris data with
+a PCA</note>
+      <xloc>368</xloc>
+      <yloc>128</yloc>
+      <width>181</width>
+      <heigth>64</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>12</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Randomly shuffle data,
+train an sklearn decision tree
+and save the model</note>
+      <xloc>128</xloc>
+      <yloc>448</yloc>
+      <width>209</width>
+      <heigth>64</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>12</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <order>
     <hop>
       <from>CSV file input</from>
-      <to>Replace in string</to>
+      <to>CPython Script Executor</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>CSV file input</from>
-      <to>Replace in string 2</to>
+      <to>CPython Script Executor 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Replace in string</from>
-      <to>Modified JavaScript value</to>
+      <from>CSV file input</from>
+      <to>CPython Script Executor 4</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>CPython Script Executor</name>
+    <type>CPythonScriptExecutor</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <rows_to_process>ALL</rows_to_process>
+    <rows_to_process_size/>
+    <reservoir_sampling>N</reservoir_sampling>
+    <reservoir_sampling_size/>
+    <reservoir_sampling_seed>1</reservoir_sampling_seed>
+    <include_input_as_output>N</include_input_as_output>
+    <py_script># Python script
+from pandas import DataFrame
+quant = iris.quantile([0.25,0.5,0.75])
+
+
+</py_script>
+    <load_script_at_runtime>N</load_script_at_runtime>
+    <script_to_load/>
+    <continue_on_unset_vars>N</continue_on_unset_vars>
+    <py_vars_to_get>quant</py_vars_to_get>
+    <include_frame_row_index>Y</include_frame_row_index>
+    <frame_names>
+      <frame_name0>iris</frame_name0>
+    </frame_names>
+    <incoming_step_names>
+      <step_name0>CSV file input</step_name0>
+    </incoming_step_names>
+    <output_fields>
+      <output_field>
+        <field_name>index</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>sepallength</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>sepalwidth</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>petallength</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>petalwidth</field_name>
+        <type>Number</type>
+      </output_field>
+    </output_fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CPython Script Executor 2</name>
+    <type>CPythonScriptExecutor</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <rows_to_process>ALL</rows_to_process>
+    <rows_to_process_size/>
+    <reservoir_sampling>N</reservoir_sampling>
+    <reservoir_sampling_size/>
+    <reservoir_sampling_seed>1</reservoir_sampling_seed>
+    <include_input_as_output>N</include_input_as_output>
+    <py_script># Python script
+from sklearn import datasets
+from pandas import DataFrame
+import sklearn.decomposition as deco
+import numpy as np
+
+X=iris2.iloc[:,[0,1,2,3]].values
+pca=deco.PCA(4)
+x_r=pca.fit(X).transform(X)
+pdf=DataFrame(x_r)
+</py_script>
+    <load_script_at_runtime>N</load_script_at_runtime>
+    <script_to_load/>
+    <continue_on_unset_vars>N</continue_on_unset_vars>
+    <py_vars_to_get>pdf</py_vars_to_get>
+    <include_frame_row_index>N</include_frame_row_index>
+    <frame_names>
+      <frame_name0>iris2</frame_name0>
+    </frame_names>
+    <incoming_step_names>
+      <step_name0>CSV file input</step_name0>
+    </incoming_step_names>
+    <output_fields>
+      <output_field>
+        <field_name>0</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>1</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>2</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>3</field_name>
+        <type>Number</type>
+      </output_field>
+    </output_fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CPython Script Executor 4</name>
+    <type>CPythonScriptExecutor</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <rows_to_process>ALL</rows_to_process>
+    <rows_to_process_size/>
+    <reservoir_sampling>N</reservoir_sampling>
+    <reservoir_sampling_size/>
+    <reservoir_sampling_seed>1</reservoir_sampling_seed>
+    <include_input_as_output>N</include_input_as_output>
+    <py_script># learn a scikit-learn classifier
+from sklearn import *
+from pandas import DataFrame
+import numpy as np
+from sklearn.externals import joblib
+import os
+
+# randomly shuffle the rows of the dataframe 
+py_data=py_data.reindex(np.random.permutation(py_data.index))
+
+# extract training columns and class column
+X=py_data.iloc[:,[0,1,2,3]].values
+Y=py_data.iloc[:,[4]].values
+
+# build a decision tree
+dt=tree.DecisionTreeClassifier()
+dt.fit(X,Y)
+
+# save the model
+filename='${Internal.Transformation.Filename.Directory}/dt.sklearn'
+if os.name == 'nt':
+	filename=filename[8:] # strip file:/// off
+else:
+	filename=filename[7:] # strip the "file://" off (probably needs changing for windows paths...)
+joblib.dump(dt,filename)
+</py_script>
+    <load_script_at_runtime>N</load_script_at_runtime>
+    <script_to_load/>
+    <continue_on_unset_vars>N</continue_on_unset_vars>
+    <py_vars_to_get>py_data</py_vars_to_get>
+    <include_frame_row_index>N</include_frame_row_index>
+    <frame_names>
+      <frame_name0>py_data</frame_name0>
+    </frame_names>
+    <incoming_step_names>
+      <step_name0>CSV file input</step_name0>
+    </incoming_step_names>
+    <output_fields>
+      <output_field>
+        <field_name>sepallength</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>sepalwidth</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>petallength</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>petalwidth</field_name>
+        <type>Number</type>
+      </output_field>
+      <output_field>
+        <field_name>class</field_name>
+        <type>String</type>
+      </output_field>
+    </output_fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>CSV file input</name>
     <type>CsvInput</type>
@@ -463,7 +776,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\BI\pdi_Exemplos\RegularExpression\ZIP_CODE_replace.txt</filename>
+    <filename>${Internal.Transformation.Filename.Directory}/iris.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -471,20 +784,65 @@
     <enclosure>"</enclosure>
     <header>Y</header>
     <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
+    <lazy_conversion>N</lazy_conversion>
     <add_filename_result>N</add_filename_result>
     <parallel>N</parallel>
     <newline_possible>N</newline_possible>
+    <format>mixed</format>
     <encoding/>
     <fields>
       <field>
-        <name>text</name>
+        <name>sepallength</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>sepalwidth</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>petallength</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>petalwidth</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>class</name>
         <type>String</type>
         <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>21</length>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -498,123 +856,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>200</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Replace in string</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>text</in_stream_name>
-        <out_stream_name>postal_code</out_stream_name>
-        <use_regex>no</use_regex>
-        <replace_string>ZIP CODE</replace_string>
-        <replace_by_string>POSTAL CODE</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Replace in string 2</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>text</in_stream_name>
-        <out_stream_name>postal_code</out_stream_name>
-        <use_regex>yes</use_regex>
-        <replace_string>(ZIP CODE|ZC):([0-9]{5})</replace_string>
-        <replace_by_string>POSTAL CODE:$2</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Modified JavaScript value</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var len_Word = text.length</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>96</yloc>
+      <xloc>80</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
